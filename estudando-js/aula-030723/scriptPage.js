@@ -1,0 +1,1 @@
+alert("Executando JS no navegador com arquivo externo!");
