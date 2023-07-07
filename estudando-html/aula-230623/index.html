@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabelas</title>
+    </head>
+    <body>
+        <h1>Tabelas</h1>
+        <!-- Escopo = é o bloco de código, por exemplo, o bloco <table>...</table> -->
+        <!-- <table> tag para a estrutura de uma tabela-->
+        <!-- <tr> tag que representa a linha de uma tabela -->
+        <!-- <td> tag que representa a célula de uma tabela -->
+        <!-- <th> tag para o título da coluna -->
+        <!-- colspan - atributo para mesclar colunas, como no excel -->
+        <!-- rowspan - atributo para mesclar linhas, como no excel-->
+        
+        <!-- Atenção! O atributo border não é mais utilizado! Utilizado aqui apenas para fins didáticos -->
+        <table border="1"> 
+            <colgroup>
+                <col style="width: 30%;">
+                <col style="width: 20%;">
+                <col style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>E-mail</th>
+            </tr>
+            <tr>
+                <td>Rafael</td>
+                <td>38 anos</td>
+                <td>rafael@email.com</td>
+            </tr>
+            <tr>
+                <td>Carol</td>
+                <td>31 anos</td>
+                <td>carol@email.com</td>
+            </tr>
+        </table>
+
+        <h2>Tabuada Soma</h2>
+        <table border="1">
+            <tr>
+                <th>Operação</th>
+                <th>Resultado</th>
+            </tr>
+            <tr>
+                <td>2 + 0 =</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>2 + 1 =</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>2 + 2 =</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>2 + 3 =</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>2 + 4 =</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2 + 5 =</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>2 + 6 =</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2 + 7 =</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>2 + 8 =</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2 + 9 =</td>
+                <td>11</td>
+            </tr>
+        </table>
+
+        <h2>Times de Futebol</h2>
+        <!-- <thead> tag que define o cabeçalho da tabela -->
+        <!-- <tbody> tag que define o corpo da tabela -->
+        <!-- <tfoot> tag que define o rodapé da tabela -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th colspan="4">Classificação Brasileirão 23</th>
+                </tr>
+                <tr>
+                    <th>Nome</th>
+                    <th>Pontos</th>
+                    <th>Saldo de Gols</th>
+                    <th>Vitórias</th>
+                </tr>               
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Botafogo</td>
+                    <td>25</td>
+                    <td>10</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Palmeiras</td>
+                    <td>22</td>
+                    <td>16</td>
+                    <td rowspan="2">6</td>
+                </tr>
+                <tr>
+                    <td>Fluminense</td>
+                    <td>19</td>
+                    <td>5</td>
+                </tr>                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <a href="https://brasileirao.cbf.com.br/" target="_blank">Acesse nosso site.</a>
+                    </td>
+                </tr>                
+            </tfoot>
+        </table>
+    </body>
+</html>

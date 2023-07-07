@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulário</title>
+    </head>
+    <body>
+        <h1>Formulário</h1>
+
+        <!-- <form> tag para a estrutura base de um formulário em HTML, é a tag pai de um formulário. -->
+        <!-- name -> esse atributo é uma identificação dos dados informados no envio do formulário. Todos os campos devem conter o atributo name, e cada campo deve ter um name diferente, com exceção do radio -->
+
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Digite seu nome completo"><br>
+            <!-- type="text" define um campo para entrada de texto -->
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" placeholder="exemplo@email.com"><br>
+            <!-- o atributo placeholder atribui um texto de fundo ao campo, servindo de exemplo ao usuário -->
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha"><br>
+            <!-- type="password" define um campo para entrada de senha -->
+
+            <label for="idade">Idade:</label>
+            <input type="number" name="idade" min="0" max="150"><br>
+            <!-- type="number" define um campo para entrada valores numericos -->
+
+            <label for="horario">Horário de Registro:</label>
+            <input type="time" name="horario" value="15:00" disabled><br>
+            <!-- type="time" define um campo para entrada de hora:minuto -->
+            <!-- o atributo disabled desabilita o campo para o usuário não poder alterar -->
+            <!-- o atributo value serve para ter um valor padrão de inicialização, no caso desse campo-->
+
+            <label for="data-nascimento">Data de Nascimento:</label>
+            <input type="date" name="data-nascimento" min="2023-06-26"><br>
+            <!-- type="date" define um campo para entrada de data -->
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" name="telefone"><br>
+            <!-- type="tel" define um campo para entrada de telefone -->
+
+            <label for="url">URL da Foto:</label>
+            <input type="url" name="foto"><br>
+
+            <label for="frente-rg">Frente do RG:</label>
+            <input type="file" name="frente-rg" accept=".png, .jpg" multiple><br> 
+            <!-- o atributo accept é usado para informar as extensões de arquivos aceitas -->
+            <!-- o atributo multiple é usado para selecionar mais de um arquivo ao mesmo tempo-->
+
+            <label for="cor">Escolha sua cor favorita:</label>
+            <input type="color" name="cor"><br>
+
+            <label for="estado-civil">Estado Civil:</label><br>
+            Solteiro: <input type="radio" name="estado-civil" value="Solteiro"><br>
+            Casado: <input type="radio" name="estado-civil" value="Casado"><br>
+            <!-- O valor radio define um conjunto de alternativas em que podemos selecionar apenas uma. -->
+            <!-- Podemos clicar em uma opção, e ao clicar em outra, a opção anterior é desmarcada. Isso se dá pelos inputs possuírem o mesmo name="estado-civil". Teste colocar um name diferente para os dois e verá que é possível marcar ambos. -->
+
+            Aceito os termos de uso:
+            <input type="checkbox" name="aceite-termos"><br>
+            <!-- As caixas de seleção permitem múltiplas opções. Elas podem ter o mesmo atributo name ou não. -->
+
+            Nível de Inglês:
+            1 <input type="range" name="ingles" min="1" max="5" step="1"> 5<br>
+
+            Estado:
+            <select name="estado">
+                <option disabled selected>Selecione uma opção</option>
+                <option value="CE">Ceará</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+            </select><br>
+            <!-- <select> Este tipo de entrada é muito interessante pois permite a listagem de muitas opções e podemos marcar apenas uma delas. -->
+
+            Fale um pouco sobre você:
+            <textarea cols="30" rows="5" name="sobre-voce">Texto padrão</textarea><br>
+            <!-- <textarea> define um campo para entrada texto longo -->
+
+            Teste:
+            <input type="text" pattern="[0-9]{4,8}"><br>
+            <!-- Define um modelo de numero que deve ter min. 4 e no max. 8 digitos -->
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+            <button type="button">Não faz nada</button><br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+            <input type="button" value="Não faz nada">
+            <!-- o valor submit é usado para submeter as informações do formulário -->
+            <!-- o valor reset é usado para limpar os dados do formulário -->
+            <!-- o valor button é usado para criar um botão comum (auxilia na execução de um evento javascript) -->
+            <!-- por padrão todos os botões dentro do formulário se comportam como o valor submit, mas mudamos o comportamento usando o atributo type -->
+            <!-- para criar botões podemos usar tanto a tag <button> quanto a <input> -->
+        </form>
+        
+    </body>
+</html>
+
+<!-- 
+    placeholder -> Define um texto explicativo para o campo
+    name -> Indica uma identificação para a informação no envio do formulário
+    value -> Indica o valor do campo
+    disabled -> Habilita/Desabilita um campo
+    min -> Define um numero minimo para campos numericos
+    max -> Define um numero máximo para campos numericos
+    minLength -> Minimo de caracteres
+    maxLength -> Maximo de caracteres
+    pattern -> Define um padrão/modelo da informação
+    required -> Define um campo obrigatório
+-->
