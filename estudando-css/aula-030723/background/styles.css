@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box; /* reseta as propriedades padrão informadas */
+    margin: 0;
+}
+
+body {
+    background-image: url("https://soulcode.com/assets/images/logo/light-logo.png"), url("https://soulcode.com/assets/images/logo/light-logo.png");
+    background-repeat: no-repeat; /* valores para background-repeat: no-repeat, repeat-x, repeat-y */
+    background-position: center, top; /* bottom top left right center */
+    background-attachment: fixed; /* a imagem é fixada no posição informada no background-position */
+    background-size: 500px, 300px; /* define a largura e altura será automatica */
+}
+
+.card {
+    width: 400px;
+    height: 400px;
+    background-color: darkgreen;
+    border-radius: 200px;
+    background-image: url(https://images.unsplash.com/photo-1688362378188-264c2d01ae9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* tenta melhorar a disposição da imagem dentro da div  */
+}

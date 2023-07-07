@@ -1,0 +1,49 @@
+/* 
+    Box Model == podemos configurar a aparência da caixa dos elementos;
+    padding == espaçamento interno entre o texto e a borda
+    margin == espaçamento externo
+    border == contorno
+
+*/
+
+
+.box1 {
+    background-color: orange;
+    text-align: justify;
+    padding: 20px; /* espaçamento interno em todos os lados. */
+    margin: 20px;
+}
+
+.box2 {
+    background-color: greenyellow;
+    padding: 10px 15px 20px 10px; /* padding: TOP RIGHT BOTTOM LEFT; */
+    margin: 25px 30px; /* margin: VERTICAL HORIZONTAL; (Vertical == Top e Bottom // Horizontal == Right e Left) */
+}
+
+.box3 {
+    background-color: blueviolet;
+    border: 4px solid black; /* border: ESPESSURA TIPO COR; (TIPO == solid, dashed ou dotted) */ 
+    color: white;
+    padding-top: 45px;
+}
+
+.box4 {
+    background-color: cornflowerblue;
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid orange;
+    width: 200px;
+    box-sizing: border-box; /* Indica ao CSS para levar em conta no 'width: 200px' a border e o padding */
+                            /* É importante lembrar que o box-sizing: border-box afeta tanto o width e o height,
+                                mas somente quando utilizadas essas duas propriedades (width e height).
+                            */
+}
+
+
+/* 
+    * asterisco é o seletor universal, irá selecionar todos os elementos da página.
+*/
+
+* {
+    box-sizing: border-box;
+}

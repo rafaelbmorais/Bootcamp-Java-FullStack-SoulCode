@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container-1 {
+    background-color: brown;
+    padding: 10px;
+
+    display: flex; /* ativa o flexbox*/
+    
+    flex-direction: row; /* valores para flex-direction são row ou column --> direção que os elementos são distribuídos */
+    
+    flex-wrap: wrap; /* valores para felx-wrap são nowrao ou wrap --> indica se pode quebrar linha se não houver espaço */
+    /* flex-flow: row wrap; */ /* --> atalho para flex-direction e flex-wrap */
+    
+    /* cria espaço entre os itens dentro do container */
+    justify-content: space-around; /* valores para justify-content são start, end, center, space-between, space-around, space-evelyn */
+                                    /* esse item gera mudanças somente no sentido que foi colocado no flex-direction */
+    align-items:end; /* alinha os itens dentro do container e cada item fica de acordo com o seu conteúdo */
+    
+    align-content: center;
+
+    height:600px;
+
+}
+
+.item-1 {
+    background-color: orange;
+    align-self: center; /* ajusta cada item individualmente */
+}
+
+.item-2 {
+    background-color: greenyellow;
+}
+
+.item-3 {
+    background-color: gold;
+}
+
+.item-4 {
+    background-color: hotpink;
+}
+
+.item-1, .item-2, .item-3, .item-4 {
+    width: 200px;
+    padding: 8px;
+    margin: 10px;
+}
+
+
+.container-2 {
+    background-color: blueviolet;
+    height: 250px;
+    display: flex;
+    
+}
+
+.coluna-1 {
+    background-color:chocolate ;
+    width: 200px;
+}
+
+.coluna-2 {
+    background-color: aquamarine;
+    flex: 1; /* verifica o tamanho que cada item está ocupando e utiliza todo esse espaço disponível */
+            /* se outro item estiver usando o flex eles irão dividir o espaço disponivel entre eles,  */
+            /* na proporção do número que você indicar */
+}
+
+.coluna-3 {
+    background-color: cornflowerblue;
+    flex: 2; /* verifica o tamanho que cada item está ocupando e utiliza todo esse espaço disponível */
+            /* se outro item estiver usando o flex eles irão dividir o espaço disponivel entre eles,  */
+            /* na proporção do número que você indicar */
+}

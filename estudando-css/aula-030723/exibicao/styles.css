@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.inline {
+    display: inline;
+}
+
+.none {
+    display: none;
+}
+
+
+/* DISPLAY:
+    display: block -> ocupa toda a largura, e quebra linha no final
+    display: inline -> ocupar apenas o necessário, não quebra linha, não obedece width e height
+    display: none -> elemento não será exibido
+    display: inline-block -> permite que um elemento ocupe apenas a largura do conteúdo (podendo ser dimensionado 
+        por width e height), combinando características de elementos 'inline' e 'block'.
+*/

@@ -1,0 +1,33 @@
+body {
+    /* fallback == caso a fonte falhe, ele aplica uma padrão do sistema */
+    font-family: 'Montserrat', sans-serif;     /* font-family é herdada para os descendentes */
+    background-color: orange; /* não herdada */
+    color: white; /* herdada */
+}
+
+.codigo {
+    font-family: monospace;
+    color: royalblue;
+}
+
+/* Prioridade = CSS define quais prioridades serão aplicadas ou sobrescritas:
+
+    inline > tag style > arquivo externo
+    atributo style > #id > .classe > seletor de tipo
+*/
+
+/* seletor de tipo */
+h1, h2, h3 {
+    background-color: brown;
+    text-decoration: line-through;
+}
+
+/* classe */
+.custom-h1 {
+    background-color: blue;
+}
+
+/* id */
+#meu-h1 {
+    background-color: green;
+}
