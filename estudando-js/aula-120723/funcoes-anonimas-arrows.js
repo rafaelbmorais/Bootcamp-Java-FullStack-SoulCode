@@ -17,6 +17,7 @@ function erro() {
 
 
 // ===== FUNÇÃO ANÔNIMA
+
 // function {
 // }
 
@@ -45,6 +46,7 @@ setInterval(function(){
 
 // ================================================================+
 
+
 // ===== ARROW FUNCTIONS ()=> (Funções de Seta, Funções Anônimas)
 
 // Essa é uma função Anônima
@@ -57,3 +59,50 @@ setTimeout(function() {
 setTimeout(() => {
     console.log("SetTimeout com Função Arrow");
 }, 2000);
+
+
+// function() {  // essa é uma Função Anônima
+// }
+
+// () => {   // essa é uma arrow function
+// }
+
+//parametros => escopo/intrução
+(resultado, requisicao) => {
+    console.log(resultado + " " + requisicao)
+    return 0;
+}
+
+
+// Testando a utilização das arrow functions
+function teste(callback) {
+    let valor = callback(130);
+    console.log(valor);
+}
+
+// Primeira forma de executar "teste" (Função Expression)
+function vezes2(numero) {
+    return (numero * 2);
+}
+
+// Segunda forma de excutar "teste" (Função Anônima)
+teste(function(numero) {
+    return (numero * 2);
+});
+
+// Terceira forma de executar "teste" (Função Arrow) - Modo 1
+teste((numero) => {
+    return (numero * 2);
+})
+
+// Terceira forma de executar "teste" (Função Arrow) - Modo 2
+// nesse caso o parenteses é retirado do argumento da função, isso só pode acontecer se tiver apenas um argumento.
+teste(numero => {
+    return (numero * 2);
+})
+
+// Quarta Forma de executar "teste" (Função Arrow)
+teste(numero => (numero * 2)); // pode-se omitir o return e as {} quando há apenas uma instrução
+
+
+// setTimeout(() => console.log("Olá, Mundo!"), 3000); // pode ser usado () ou _ quando não há parametros
