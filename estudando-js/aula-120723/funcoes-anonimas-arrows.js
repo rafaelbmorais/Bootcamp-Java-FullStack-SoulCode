@@ -106,3 +106,13 @@ teste(numero => (numero * 2)); // pode-se omitir o return e as {} quando há ape
 
 
 // setTimeout(() => console.log("Olá, Mundo!"), 3000); // pode ser usado () ou _ quando não há parametros
+
+
+// Recursividade -> chama da função pela mesma função
+function fatorial(numero) {
+    if(numero == 1) {
+        return 1;
+    }
+    return numero * fatorial(numero - 1);
+}
+console.log(fatorial(4));
