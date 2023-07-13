@@ -3,6 +3,19 @@
 -- REGRA SQL 1: LETRAS MAIÚSCULAS NOS COMANDOS
 -- REGRA SQL 2: LETRAS MINÚSCULAS EM OUTROS VALORES
 
+-- NORMALIZAÇÃO
+	-- 1FN:
+		-- Atributos devem ser indivisiveis;
+		-- Toda tabela necessita de uma chave primária.
+		
+	-- 2FN:
+		-- Os campos de uma tabela devem depender de sua chave primária;
+		-- Reduzir redundância.
+		
+	-- 3FN:
+		-- Remover campos que podem ser obtidos via outros campos. 
+-- ---------------
+
 SHOW DATABASES; -- listar os bancos disponíveis
 
 CREATE DATABASE empresa_db; -- cia um banco de dados com o nome especificado
@@ -29,17 +42,19 @@ DESCRIBE colaborador; -- mostra a estrutura da tabela, no caso a colaborador
     -- DATETIME = formato YYYY-MM-DD hh:mm:ss
     -- BLOB = arquivos (binary large object)
     
-
+-- Tabela Departamento
 CREATE TABLE departamento(
 	-- <nome da coluna> <tipo da coluna> <constraints>
     idDepartamento INTEGER PRIMARY KEY AUTO_INCREMENT, -- PRIMARY KEY = chave primária, AUTO_INCREMENT = 
 	nome VARCHAR(150) NOT NULL, -- NOT NULL torna a coluna obrigatória
     descricao VARCHAR(200) 
 );
-    
+
+-- ------------------------------------------------------------------------------
 -- Aula 12/07
 -- CONSTRAINTS; CHAVE ESTRANGEIRA; INSERT; UPDATE; DELETE;
     
+-- Tabela Colaborador
 CREATE TABLE colaborador(
 	idColaborador INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(200) NOT NULL,
@@ -52,6 +67,7 @@ CREATE TABLE colaborador(
 	REFERENCES departamento(idDepartamento) -- chave primária da outra tabela
 );
 
+-- Tabela Endereço
 CREATE TABLE endereco(
 	idEndereco INTEGER PRIMARY KEY AUTO_INCREMENT,
     cidade VARCHAR(30) NOT NULL,
@@ -65,6 +81,7 @@ CREATE TABLE endereco(
     REFERENCES colaborador(idColaborador)
 );
 
+-- Tabela Dependente
 CREATE TABLE dependente(
 	idDependente INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(200) NOT NULL,
@@ -74,20 +91,31 @@ CREATE TABLE dependente(
     REFERENCES colaborador(idColaborador)
 );
 
+-- Tabela Projeto
+-- Não pode ter chave estrangeira, pois é uma relação N:N. Para o relacionamento com colaborador, temos que criar uma tabela de relacionamento.
 CREATE TABLE projeto(
 	idProjeto INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     prazo DATE NOT NULL,
-    orcamento DECIMAL(8, 2) NOT NULL,
+    orcamento DECIMAL(8, 2) NOT NULL
+);
+
+-- Tabela Relacionamento Colaborador-Projeto
+CREATE TABLE colaborador_projeto(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
     fkColaborador INTEGER NOT NULL,
-    FOREIGN KEY(fkColaborador)
-    REFERENCES colaborador(idColaborador)
+	fkProjeto INTEGER NOT NULL,
+    FOREIGN KEY (fkColaborador) REFERENCES colaborador(idColaborador),
+    FOREIGN KEY (fkProjeto) REFERENCES projeto(idProjeto)
 );
   
 -- Listar dados de uma tabela
 SELECT * FROM projeto;
 
 -- INSERINDO DADOS
+-- OBS: uma forma de inserir dados é colocando os nomes das colunas após o nome da tabela (deverão ser colocadas entre um parenteses e separados por vírgula).
+-- Lembrando que dessa forma é obrigatório preencher todas as colunas informadas.
+-- INSERT INTO departamento (nome, complemento)...
 
 -- Departamento
 INSERT INTO departamento
@@ -182,28 +210,49 @@ INSERT INTO dependente
     
 -- Projeto
 INSERT INTO projeto
-	VALUES(NULL, "Tela de cadastro de fornecedores", "1970-09-12", 100000.0, 10);
+	VALUES(NULL, "Tela de cadastro de fornecedores", "1970-09-12", 100000.0);
 INSERT INTO projeto
-	VALUES(NULL, "Tela de cadastro de fornecedores", "1970-09-12", 100000.0, 8);
+	VALUES(NULL, "Migracao para Cloud", "1970-12-20", 300000.0);
 INSERT INTO projeto
-	VALUES(NULL, "Migracao para Cloud", "1970-12-20", 300000.0, 2);
+	VALUES(NULL, "Implantação Ecommerce", "1970-10-10", 350000.0);
 INSERT INTO projeto
-	VALUES(NULL, "Migracao para Cloud", "1970-12-20", 300000.0, 1);
-INSERT INTO projeto
-	VALUES(NULL, "Migracao para Cloud", "1970-12-20", 300000.0, 9);
-INSERT INTO projeto
-	VALUES(NULL, "Implantação Ecommerce", "1970-10-10", 350000.0, 3);
-INSERT INTO projeto
-	VALUES(NULL, "Implantação Ecommerce", "1970-10-10", 350000.0, 8);
-INSERT INTO projeto
-	VALUES(NULL, "Implantação Ecommerce", "1970-10-10", 350000.0, 4);
-INSERT INTO projeto
-	VALUES(NULL, "Implantação Ecommerce", "1970-10-10", 350000.0, 5);
-INSERT INTO projeto
-	VALUES(NULL, "Nova interface CRM", "1970-11-15", 250000.0, 7);
-INSERT INTO projeto
-	VALUES(NULL, "Nova interface CRM", "1970-11-15", 250000.0, 6);
-INSERT INTO projeto
-	VALUES(NULL, "Nova interface CRM", "1970-11-15", 250000.0, 2);
+	VALUES(NULL, "Nova interface CRM", "1970-11-15", 250000.0);
+    
+
+INSERT INTO colaborador_projeto(fkColaborador, fkProjeto)
+VALUES (1, 2), (2, 2), (3, 1), (4, 3), (5, 1), (6, 4), (7, 3), (8, 4), (9, 2), (10, 4), (2, 3), (8, 1), (10, 1);
+
+    
+SELECT * FROM colaborador;
+SELECT * FROM departamento;
+SELECT * FROM dependente;
+SELECT * FROM endereco;
+SELECT * FROM projeto;
+SELECT * FROM colaborador_projeto;
+
+-- --------------------------------------------------------------------
+-- AULA 13/07
+-- UPDATE; DELETE; CORREÇÃO DA ATIVIDADE
+
+USE empresa_db;
+
+-- UPDATE colaborador SET salario = 8500; -- PERIGO!!!! É errado fazer isso! Pois atualiza todas as linhas da tabela sem critério nenhum.
+
+UPDATE colaborador 
+SET salario = 9000
+WHERE idcolaborador = 2; -- WHERE -> indica uma condição para aplicar o UPDATE
+
+UPDATE colaborador
+SET nome = "Jorge Valdivia",
+	salario = 7000,
+    dataNascimento = "1920-03-30",
+    fkDepartamento = 4
+WHERE idColaborador = 1; -- Se uma coluna falhar não atualiza nenhum campo
+
+-- DELETE FROM endereco; -- CUIDADO!!! O comando dessa forma apaga todos os registros da tabela!
+
+DELETE FROM colaborador
+WHERE idColaborador = 3; -- OBS.: só podemos apagar registros que não tem vínculo com outros regsitros de outras tabelas
 
 
+SELECT * FROM colaborador;
