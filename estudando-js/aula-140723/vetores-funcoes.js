@@ -46,3 +46,32 @@ console.log("---------");
 console.log(nums.reduce((acumulador, num) => (acumulador - num), 0)); // reduce -> efetuar a redução dos valores do vetor em um valor acumulativo.
 // lê e subtrai dos elementos do vetor, um a um. O acumulador começa em zero (zero informado apos a arow function).
 
+
+console.log(nums.map(num => num * 2)); // multiplica todos os valores por 2 e gera um novo vetor
+
+// arrow funtion -----> parametro => operação e retorno
+
+console.log(nums.find(num => (num > 8))); // retorna o primeiro valor que corresponde a condição especificada.
+
+console.log("-- Filter ");
+console.log(nums.filter(num => (num % 2 == 0))); // retorna um vetor com elementos que corresponde a condição.
+
+
+
+// console.log(names.find(nome => nome.includes("Rocha"))); 
+// console.log(names.filter(nome => nome.includes("Sousa")));
+
+// usando a crase `` para delimitar uma string posso ter quebra de linha e não causará erro.
+
+// string como vetor
+let nome = 'Carolina';
+let idade = 31;
+let mensagem = `Nome: ${nome} - Idade: ${idade}`; // interporlação
+console.log(mensagem);
+
+console.log(nome[2]); // é válido, retorna "o"
+
+// o \n é usado para quebra de linha em JS.
+
+console.log("O \"Palmeiras\" perdeu ontem!");
+
