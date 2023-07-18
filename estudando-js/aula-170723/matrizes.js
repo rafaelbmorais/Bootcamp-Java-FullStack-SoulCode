@@ -6,23 +6,23 @@ const vetor4 = [6, 7, 8, 9, 0];
 const matriz = [vetor1, vetor2, vetor3, vetor4]; // vetor bidimensional.
 // Vetor bidimensional possui altura e largura.
 
-console.log(vetor1[0]);
-console.log(matriz[0][0]);
+// console.log(vetor1[0]);
+// console.log(matriz[0][0]);
 
-// matriz tridimensional
-const matriz3d = [
-    [
-        [1, 2],
-        [3, 4]
-    ],
-    [
-        [5, 6],
-        [7, 8]
-    ]
-];
+// // matriz tridimensional
+// const matriz3d = [
+//     [
+//         [1, 2],
+//         [3, 4]
+//     ],
+//     [
+//         [5, 6],
+//         [7, 8]
+//     ]
+// ];
 
-console.log(matriz3d[1][0][0]); // acessa o elemento 5. 
-console.log(matriz3d[1][1][1]); // acessa o elemento 8.
+// console.log(matriz3d[1][0][0]); // acessa o elemento 5. 
+// console.log(matriz3d[1][1][1]); // acessa o elemento 8.
 
 const matriz3x3 = [
     [1, 8, 4],
@@ -30,6 +30,8 @@ const matriz3x3 = [
     [2, 3, 7]
 ];
 
-for(let i = 0; i < matriz3x3.length; i++) {
-    console.log(matriz3x3[i])
+for(let x = 0; x < matriz3x3.length; x++) {
+    for(let y = 0; y < matriz3x3[x].length; y++) {
+        console.log(matriz3x3[x][y]);
+    }
 }
