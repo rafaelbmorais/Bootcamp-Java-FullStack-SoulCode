@@ -1,4 +1,5 @@
 CREATE DATABASE loja_grupo_db;
+USE loja_grupo_db;
 
 CREATE TABLE vendedor(
 	idVendedor INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -16,9 +17,14 @@ CREATE TABLE endereco(
     numero VARCHAR(10) NOT NULL,
     complemento VARCHAR(120) DEFAULT("Sem complemento"),
     cep VARCHAR(8) NOT NULL,
-    fkVendedor INTEGER UNIQUE NOT NULL,
+    fkVendedor INTEGER UNIQUE NOT NULL, -- UNIQUE é usada quando a relação é de 1 para 1.
     FOREIGN KEY(fkVendedor)
     REFERENCES vendedor(idVendedor)
+);
+
+CREATE TABLE categoria(
+	idCategoria INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(60) UNIQUE NOT NULL
 );
 
 CREATE TABLE produto(
@@ -35,10 +41,9 @@ CREATE TABLE produto(
     FOREIGN KEY (fkCategoria) REFERENCES categoria(idCategoria)
 );
 
-CREATE TABLE categoria(
-	idCategoria INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(60) NOT NULL
-);
+
+
+DESCRIBE categoria; -- informar como está configurada cada tabela
 
 SHOW TABLES;
 
@@ -141,7 +146,133 @@ WHERE DATE(validadeDesconto)
 BETWEEN '2023-06-01' AND '2023-06-30';
 
 
+-- ---- Aula 17/07/23
+
+SELECT * FROM vendedor; -- Lista TODOS os registros e todas as colunas.
+-- AS = alias = apelido temporário para uma coluna/tabela.
+-- Query = consulta = seleção = busca
+
+-- Usos do SELECT podem ser como Projeção ou Seleção:
+-- Projeção (define o que vai ser exibido):
+SELECT 1 + 1; -- Avalia a expressão matemática
+SELECT CURDATE(); -- retorna a data do dia.
+SELECT 50 / 3 AS resultado1, 10 / 3 AS resultado2;
+SELECT * FROM vendedor; -- ver todas as colunas.
+SELECT nome FROM vendedor;
+SELECT nome, sobrenome FROM vendedor;
+SELECT nome AS nomeVendedor, sobrenome AS sobrenomeVendedor FROM vendedor;
+SELECT CONCAT(nome, ' ', sobrenome) AS nomeCompleto FROM vendedor; -- faz a busca pelas colunas nome e sobrenome e as concatena, criando espaço entre eles por aspas simples ou dupla.
+SELECT email, dataNascimento AS aniversario FROM vendedor;
+
+-- Seleção (busca porções destes dados):
+SELECT * 
+FROM vendedor
+WHERE idVendedor = 3; -- traz somente o vendedor 3
+
+SELECT *
+FROM vendedor
+WHERE idVendedor != 3; -- traz todos os vendedores menos o 3
+
+SELECT nome, preco FROM produto WHERE preco < 100; -- traz todos os produtos que tem o preco menor que 100 reais (o 100 não está incluso).
+
+SELECT nome, preco FROM produto WHERE preco >= 100; -- traz todos os produtos que são maiores e iguais a 100 reais.ALTER
+
+SELECT * FROM produto WHERE percentualDesconto > 0.3;
+
+SELECT *
+FROM produto
+WHERE validadeDesconto IS NULL; -- Filtra os registros que validade é NULA
+
+SELECT * 
+FROM vendedor
+WHERE dataNascimento IS NOT NULL; -- filtra os registros que a validade é DIFERENTE DE NULA.
+
+SELECT *
+FROM produto
+WHERE preco >= 100 AND preco <= 1000; -- AND = todas as condições tem que ser verdadeira, se uma elas for falsa será retornado nada.
+
+SELECT *
+FROM vendedor
+WHERE idVendedor = 1 OR idVendedor = 3 OR idVendedor = 6; -- OR = basta uma condição ser verdadeira
+
+-- BETWEEN:
+SELECT *
+FROM produto
+WHERE preco BETWEEN 100 AND 1000;
+
+SELECT *
+FROM vendedor
+WHERE dataNascimento BETWEEN "1995-01-01" AND "2000-01-01";
+
+-- IN = otimizar o uso do OR
+SELECT *
+FROM endereco
+WHERE uf IN("SP", "CE", "MG", "SC");
+
+SELECT *
+FROM endereco
+WHERE uf NOT IN("SP", "CE", "MG", "SC");
+
+-- LIKE
+SELECT *
+FROM Vendedor
+WHERE nome LIKE "J%"; -- o nome precisa começar com 'J', o restante tanto faz
+
+SELECT *
+FROM Vendedor
+WHERE nome LIKE "%na"; -- o nome precisa terminar com 'na';
+
+SELECT *
+FROM Vendedor
+WHERE email LIKE "%@gmail%"; -- precisa conter o termo buscado, não importa o lugar que esteja
+
+SELECT *
+FROM vendedor
+WHERE nome LIKE "J%a";
 
 
+-- Q1: Filtre os produtos cujo estoque está entre 200 e 800, ordene por preco decrescente, e limite a 5 registros.
+SELECT * -- seleciona todas as colunas
+FROM produto -- da tabela produto
+WHERE estoque BETWEEN 200 AND 800 -- onde o estoque estiver entre 200 e 800
+ORDER BY preco DESC -- ordena pelo preço decrescente
+LIMIT 5; -- e retorna no maxima 5 produtos
 
+
+-- Q2: Exiba nome, sobrenome e data de nascimento dos vendedores (renomear para aniversario), apenas os que nasceram entre 1993 e 1995, ordene por nome (ordem crescente) e limite a 20.
+SELECT nome, sobrenome, dataNascimento AS aniversario
+FROM  vendedor
+WHERE dataNascimento BETWEEN "1993-01-01" AND "1995-12-31"
+ORDER BY nome
+LIMIT 20;
+
+
+-- Q3: Exiba nome, preco, lucro total (preco * estoque) da tabela produto.
+	-- Apenas os produtos com categoria 1, 2, 3 E com preço menor que 100.
+	-- Ordene por nome crescente
+	-- Limite a 100.
+SELECT nome, preco, preco * estoque AS lucroTotal
+FROM produto
+-- WHERE fkcategoria = 1 OR fkcategoria = 2 OR fkcategoria = 3 AND preco < 100 -- pode ser feito dessa forma ou conforme a linha abaixo.
+WHERE fkcategoria IN(1, 2, 3) AND preco < 100
+ORDER BY nome
+LIMIT 100;
+
+
+-- ----
+SELECT CURDATE();
+SELECT YEAR("2000-05-20");
+SELECT MONTH("2000-05-20");
+SELECT MONTH(CURDATE());
+SELECT YEAR(CURDATE());
+
+-- Q4: Filtrar os vendedores que nasceram entre 1980 e 1990.
+SELECT *
+FROM vendedor
+WHERE YEAR(dataNascimento) BETWEEN 1980 AND 1990;
+
+-- Q5: Filtrar os produtos que o desconto venceu no mês passado
+SELECT *
+FROM produto
+WHERE MONTH(validadeDesconto) = MONTH(CURDATE()) - 1; -- checa o mês de validade do desconto com o mês atual - 1.
 
