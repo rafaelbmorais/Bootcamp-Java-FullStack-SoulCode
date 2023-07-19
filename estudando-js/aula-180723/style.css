@@ -1,0 +1,20 @@
+.mensagem {
+    padding: 20px;
+    border: 2px solid #2f64c6;
+    background-color: #ebeff6;
+    color: #1c5fdc;
+}
+
+.erro {
+    padding: 20px;
+    border: 2px solid #c62f2f;
+    background-color: #f6ebeb;
+    color: #dc1c1c;
+}
+
+.atencao {
+    padding: 20px;
+    border: 2px solid #c6c62f;
+    background-color: #5b5b56;
+    color: #dcd91c;
+}
