@@ -27,6 +27,6 @@ function changeColorSquare() { // esta função está sendo chamada no html
     quadrado.style.backgroundColor = "blue";
 }
 
-quadrado.addEventListener("mouseout", () => {
+quadrado.addEventListener("mouseout", () => { // terceira forma de adicionar um "ouvidor de evento"
     quadrado.style.backgroundColor = "orange";
 })
