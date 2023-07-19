@@ -23,7 +23,7 @@ quadrado.ondblclick = () => {
     quadrado.style.transform = "translate(0px)"
 }
 
-function changeColorSquare() { // esta função está sendo chamada no html
+function changeColorSquare() { // esta função está sendo chamada no html -> segunda forma
     quadrado.style.backgroundColor = "blue";
 }
 
