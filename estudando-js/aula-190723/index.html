@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <style>
+        body {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #quadrado {
+            width: 400px;
+            height: 400px;
+            background-color: blueviolet;
+            transition-property: all;
+            transition-duration: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="quadrado" onmouseover="changeColorSquare()"> <!-- Segunda forma de adicionar um "ouvidor de evento" -->
+
+    </div>
+
+    <script src="eventos.js"></script>
+</body>
+</html>
