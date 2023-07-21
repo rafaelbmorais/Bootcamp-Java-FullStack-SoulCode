@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th>Descrição</th>
+            <th>Prioridade</th>
+            <th>Status</th>
+            <th>Prazo</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tarefa 1</td>
+                <td>Baixa</td>
+                <td>Iniciada</td>
+                <td>22/07/23</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form>
+        <fieldset>
+            <legend>Nova Tarefa</legend>
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao"><br>
+            <label for="prioridade">Prioridade</label>
+            <input type="text" id="prioridade" name="prioridade"><br>
+            <label for="status">Status</label>
+            <input type="text" id="status" name="status"><br>
+            <label for="prazo">Prazo</label>
+            <input type="date" id="data" name="data">
+        </fieldset>
+    </form>
+    
+    <button type="button">Adicionar</button>
+    <button type="reset">Remover</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
