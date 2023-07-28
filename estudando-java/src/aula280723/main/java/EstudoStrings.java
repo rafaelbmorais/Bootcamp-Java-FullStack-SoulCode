@@ -35,6 +35,6 @@ public class EstudoStrings {
         }
 
         System.out.println(" ".isEmpty()); // false
-        System.out.println(" "); // true (considera os espaçõs)
+        System.out.println(" ".isBlank()); // true (considera os espaços)
     }
 }

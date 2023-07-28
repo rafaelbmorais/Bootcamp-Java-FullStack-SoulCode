@@ -4,14 +4,14 @@ public class EstudoVetores {
 
     public static void main(String[] args) {
         int[] vetor = {1, 2, 3, 4, 5}; // vetor de números inteiros
-        double[] notas = new double[60]; // geralmente o vetor é declarado dessa forma e posteriormente populado
-
-        notas[59] = 9.2;
-        System.out.println(notas[59]);
-
-        System.out.println(vetor[4]);
-        vetor[4] = 8;
-        System.out.println(vetor[4]);
+//        double[] notas = new double[60]; // geralmente o vetor é declarado dessa forma e posteriormente populado
+//
+//        notas[59] = 9.2;
+//        System.out.println(notas[59]);
+//
+//        System.out.println(vetor[4]);
+//        vetor[4] = 8;
+//        System.out.println(vetor[4]);
 
         String[] nomes = {"Carol", "Rafael"};
         String nomes2[] = {"Carol", "Rafael"}; // o vetor pode ser declarado dessa forma também
