@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class EstudoEstruturas {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in); // o Sacnner permite a leitura de dados do teclado
