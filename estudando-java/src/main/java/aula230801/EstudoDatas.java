@@ -1,3 +1,5 @@
+package aula230801;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -7,7 +9,7 @@ import java.util.Date;
 public class EstudoDatas {
 
     public static void main(String[] args) {
-        LocalDate hoje = LocalDate.now(); // data e hoje
+        LocalDate hoje = LocalDate.now(); // data de hoje
         System.out.println(hoje);
 
         LocalTime agora = LocalTime.now(); // a hora nesse exato momento

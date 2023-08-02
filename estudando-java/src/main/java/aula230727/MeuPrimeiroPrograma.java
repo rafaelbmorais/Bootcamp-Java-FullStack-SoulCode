@@ -1,4 +1,4 @@
-/*
+package aula230727;/*
 - Um programa JAVA deve ter o nome bem definido, seguindo o PascalCase:
     -  Primeira letra maiúscula de cada palavra do nome do programa
         - ex: PrimeiroPrograma.java, CalculadoraIMC.java

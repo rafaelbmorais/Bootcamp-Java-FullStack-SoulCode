@@ -1,3 +1,5 @@
+package aula230727;
+
 public class EstudoVariaveis {
     public static void main(String [] args) {
         // varíável = conatianer de dados

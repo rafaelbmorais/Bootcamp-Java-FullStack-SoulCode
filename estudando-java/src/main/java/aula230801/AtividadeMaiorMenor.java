@@ -1,3 +1,4 @@
+package aula230801;
 // Crie um programa que receba 5 números do usuário e armazene-os em uma lista.
 //        Em seguida, exiba o maior e o menor número da lista.
 
@@ -16,8 +17,8 @@ public class AtividadeMaiorMenor {
         while (n < 5) {
             System.out.println("Digite um número para a posição " + n + " : ");
             int num = entrada.nextInt();
-            numeros.add(num);
-            n++;
+            numeros.add(num); // o método .add() adiciona no final do array, então não precisa colocar o num como parametro,
+            n++;                // mas é necessário colocar o nextInt() como parametro, ficando assim numero.add(nextInt());
         }
 
         Collections.sort(numeros);

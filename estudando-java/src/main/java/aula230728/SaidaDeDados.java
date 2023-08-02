@@ -1,3 +1,5 @@
+package aula230728;
+
 public class SaidaDeDados {
 
     public static void main(String[] args) {
