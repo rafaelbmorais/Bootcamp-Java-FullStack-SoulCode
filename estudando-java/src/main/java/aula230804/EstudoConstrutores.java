@@ -16,5 +16,7 @@ public class EstudoConstrutores {
         Venda venda3 = new Venda(LocalDate.now());
         Venda venda4 = new Venda("José");
         Venda venda5 = new Venda("Sebastiana", LocalDate.now());
+
+        System.out.println(venda1);
     }
 }
