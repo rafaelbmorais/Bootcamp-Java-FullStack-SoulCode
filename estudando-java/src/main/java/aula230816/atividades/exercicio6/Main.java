@@ -6,6 +6,12 @@ package aula230816.atividades.exercicio6;
 
 public class Main {
 
+    public static void main(String[] args) {
 
+        ConversorMoedas cm = new ConversorMoedas();
+        cm.converter("real", "dolar", 30.0);
+        cm.converter("dolar", "real", 30.0);
+        cm.converter("bitcoin", "euro", 40.0);
+    }
 
 }

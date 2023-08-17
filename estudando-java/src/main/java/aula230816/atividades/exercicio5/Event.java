@@ -1,32 +1,18 @@
 package aula230816.atividades.exercicio5;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Event {
 
-    int vetorLugares[] = new int[10];
-    private Integer lugar;
+    List<String> reservas = new ArrayList<>();
 
-    public Event() {
-    }
-
-    public Event(int[] vetorLugares, Integer lugar) {
-        this.vetorLugares = vetorLugares;
-        this.lugar = lugar;
-    }
-
-    public int[] getVetorLugares() {
-        return vetorLugares;
-    }
-
-    public void setVetorLugares(int[] vetorLugares) {
-        this.vetorLugares = vetorLugares;
-    }
-
-    public Integer getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(Integer lugar) {
-        this.lugar = lugar;
+    public void adicionarReserva(String nome) {
+        if(reservas.size()+1 > 5) {
+            throw new NoMoreSeatsException();
+        }
+        reservas.add(nome);
+        System.out.println("Reserva efetuada.");
     }
 }

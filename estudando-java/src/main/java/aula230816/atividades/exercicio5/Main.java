@@ -7,5 +7,17 @@ package aula230816.atividades.exercicio5;
 
 public class Main {
 
+    public static void main(String[] args) {
+
+        Event event = new Event();
+
+        event.adicionarReserva("Ludmila");
+        event.adicionarReserva("Matheus");
+        event.adicionarReserva("Felipe");
+        event.adicionarReserva("Nicolas");
+        event.adicionarReserva("Leonardo");
+
+        event.adicionarReserva("Gabriela");
+    }
 
 }
